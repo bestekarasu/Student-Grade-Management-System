@@ -1,0 +1,22 @@
+{
+  "name": "student-grade-management-system",
+  "version": "1.0.0",
+  "description": "Simple CIU grade management project with Node.js, MySQL, Bootstrap, and Chart.js.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "stop": "node scripts/stop-server.js",
+    "dev": "node --watch src/server.js",
+    "db:setup": "node scripts/setup-db.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.11.5"
+  },
+  "devDependencies": {}
+}
