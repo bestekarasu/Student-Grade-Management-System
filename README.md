@@ -1,36 +1,16 @@
-# CIU Grade System
+# Library Kiosk Sequence Diagram
 
-Simple CMPE314 grade management project. It uses Node.js, Express, MySQL, Bootstrap and Chart.js.
+## Description
+This sequence diagram illustrates the process of returning a book through a library kiosk system.
 
-## Setup
+## Normal Flow
+The process starts when the student places a book on the scanner. The kiosk system scans the book ID using the book scanner and sends it to the library database for validation.
+If the book is valid, the system proceeds to check the due date. When the book is returned on time, the library database updates the inventory successfully. 
+After that, the kiosk system sends a confirmation message through the notification service. 
+Finally, the book is placed on the shelf, and the system displays a "Return successful" message to the student.
 
-```bash
-npm install
-cp .env.example .env
-npm run db:setup
-npm start
-```
-
-Open `http://localhost:3000`.
-
-Stop the server when you are done:
-
-```bash
-npm run stop
-```
-
-## Demo Logins
-
-Password for all demo users: `password`
-
-- Instructor: `felix@ciu.edu.tr`
-- Students: `beste@student.ciu.edu.tr`, `ahmet@student.ciu.edu.tr`, `nenette@student.ciu.edu.tr`, `onur@student.ciu.edu.tr`
-- Admin: `admin@ciu.edu.tr`
-
-## Main Pages
-
-- Login page has a student register button.
-- Instructor can see courses, add students, add assessments and enter grades.
-- Student can see course history, grades, chart and feedback.
-- Admin can see users grouped as instructors, students and admins, and create simple accounts.
-- Admin reports show course performance for university administration.
+## Alternative Flows
+There are two alternative scenarios in this process. In the first scenario, if the book is invalid, the kiosk system displays an error message to the student and rejects the book. 
+In the second scenario, if the book is overdue, the system calculates a fine using the fine calculator. 
+The fine amount is then displayed to the student, who must confirm the payment. Once the payment is processed successfully by the payment system, 
+the process continues normally with sending a confirmation message and completing the return procedure.
